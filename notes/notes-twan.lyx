@@ -386,7 +386,26 @@ Can generalize a bit, formulate a QP:
 \end_layout
 
 \begin_layout Itemize
-Point acceleration task
+Point acceleration task:
+\begin_inset Formula 
+\begin{align*}
+p & =f\left(q\right)\\
+\dot{p} & =\frac{\partial f\left(q\right)}{\partial q}\dot{q}=J\dot{q}\\
+\ddot{p} & =J\ddot{q}+\dot{J}\dot{q}=\ddot{p}_{\text{des}}\\
+\underbrace{J}_{D}\ddot{q} & =\underbrace{\ddot{p}_{\text{des}}-\dot{J}\dot{q}}_{e}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CoM task (!)
+\end_layout
+
+\begin_layout Itemize
+Orientation task
 \end_layout
 
 \end_deeper
@@ -400,6 +419,22 @@ Equations of motion:
 \begin_inset Formula 
 \[
 M\left(q\right)\ddot{q}+c\left(q,\dot{q}\right)=Bu+J_{c}^{T}\left(q\right)\lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Forces:
+\begin_inset Formula 
+\[
+\lambda=\left(\begin{array}{c}
+\lambda_{1}\\
+\vdots\\
+\lambda_{2}
+\end{array}\right),\quad\lambda_{i}\in\text{friction cone}
 \]
 
 \end_inset
@@ -424,9 +459,26 @@ Updated optimization problem:
 \end_layout
 
 \begin_layout Itemize
-Approximate using QP: run at 500 - 1000 Hz
+Approximate using QP
 \end_layout
 
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\lambda_{1}=\sum_{i}\rho_{i}\beta_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\rho_{i}\geq0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+run at 500 - 1000 Hz
+\end_layout
+
+\end_deeper
 \end_deeper
 \end_body
 \end_document
