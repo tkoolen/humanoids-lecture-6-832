@@ -1,0 +1,428 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "cmss" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+LIPM
+\end_layout
+
+\begin_layout Itemize
+Continue on path of using simple abstractions
+\end_layout
+
+\begin_layout Itemize
+What simple models of locomotion have you already seen? 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Rimless wheel
+\end_layout
+
+\begin_layout Itemize
+Compass gait model
+\end_layout
+
+\begin_layout Itemize
+SLIP model 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Want something even simpler: linear inverted pendulum model (LIPM)
+\end_layout
+
+\begin_layout Itemize
+Several ways to interpret:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+approximation of a simple model
+\series default
+: linearization of inverted pendulum
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+simple model
+\series default
+ in its own right
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+projection of the full dynamics
+\series default
+, subject to certain constraints.
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Derivation as simple model in its own right.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+2D, but will generalize easily to 3D
+\end_layout
+
+\begin_layout Itemize
+Drawing
+\end_layout
+
+\begin_layout Itemize
+Similar triangles
+\end_layout
+
+\begin_layout Itemize
+Newton
+\end_layout
+
+\begin_layout Itemize
+State space model
+\end_layout
+
+\begin_layout Itemize
+Phase portrait (compare to pendulum `eye')
+\end_layout
+
+\begin_layout Itemize
+Eigenvalues: 
+\begin_inset Formula $\pm\sqrt{\frac{g}{z}}$
+\end_inset
+
+; one stable, one unstable (saddle point)
+\end_layout
+
+\begin_layout Itemize
+Taking a step: horizontal translation
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Derivation as projection of full dynamics
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+why? identify exactly which parts of full model correspond to parts of simple
+ model.
+\end_layout
+
+\begin_layout Itemize
+step back:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+two point masses
+\end_layout
+
+\begin_layout Itemize
+equations of motion
+\end_layout
+
+\begin_layout Itemize
+sum
+\end_layout
+
+\begin_layout Itemize
+internal forces cancel
+\end_layout
+
+\begin_layout Itemize
+generalize
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+external forces acting on a humanoid robot: gravity and contact forces
+\end_layout
+
+\begin_layout Itemize
+same LIPM drawing, but:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+assume that angular momentum remains constant
+\end_layout
+
+\begin_layout Itemize
+point mass is CoM
+\end_layout
+
+\begin_layout Itemize
+rod becomes 
+\emph on
+any
+\emph default
+ linkage
+\end_layout
+
+\begin_layout Itemize
+base is CoP (or ZMP; but note that there are differences in definition)
+\end_layout
+
+\begin_layout Itemize
+can actually also drop the constraint of no angular momentum (CMP), but
+ there's no notion of `average angular position', like the CoM
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Where can the CoP be? No forces exerted at a distance.
+ Base of support
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What do we have now?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+linear
+\series default
+ model that captures the most important features of walking: how CoM moves
+ in response to CoP
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+sequence of footsteps
+\series default
+ and timing: set of time-varying 
+\series bold
+linear 
+\series default
+constraints on CoP
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+What can we do:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+plan a CoM / CoP trajectory that minimizes some quadratic cost subject to
+ linear constraints: Quadratic Program
+\end_layout
+
+\begin_layout Itemize
+solve that program 
+\series bold
+online
+\series default
+ at a high rate: 
+\series bold
+linear
+\series default
+ MPC
+\end_layout
+
+\begin_layout Itemize
+constantly updated stream of CoP's / center of mass accelerations
+\end_layout
+
+\end_deeper
+\begin_layout Section
+Whole-body control
+\end_layout
+
+\begin_layout Standard
+How do we control the full robot using this plan for the simple model?
+\end_layout
+
+\begin_layout Itemize
+Depends on your robot:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+position controlled: use inverse kinematics
+\end_layout
+
+\begin_layout Itemize
+force controlled: more interesting
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Take a step back in complexity: fully actuated robot arm
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+what would you do?
+\end_layout
+
+\begin_layout Itemize
+Equations of motion (manipulator equations):
+\begin_inset Formula 
+\[
+M\left(q\right)\ddot{q}+c\left(q,\dot{q}\right)=\tau
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Given: desired motions of the joints, expressed as 
+\begin_inset Formula $\ddot{q}_{\text{des}}$
+\end_inset
+
+, compute 
+\begin_inset Formula $\tau$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Feedback linearization / inverse dynamics / computed torque method.
+\end_layout
+
+\begin_layout Itemize
+Source of 
+\begin_inset Formula $\ddot{q}_{\text{des}}$
+\end_inset
+
+: for example, just PD control.
+\end_layout
+
+\begin_layout Itemize
+Can generalize a bit, formulate a QP:
+\begin_inset Formula 
+\begin{align*}
+\text{minimize}_{\ddot{q},\tau} & \left\Vert \tau\right\Vert ^{2}\\
+\text{subject to} & M\left(q\right)\ddot{q}+c\left(q,\dot{q}\right)=\tau\\
+ & D\ddot{q}=e
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Now: back to the underactuated case.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Equations of motion:
+\begin_inset Formula 
+\[
+M\left(q\right)\ddot{q}+c\left(q,\dot{q}\right)=Bu+J_{c}^{T}\left(q\right)\lambda
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Updated optimization problem:
+\begin_inset Formula 
+\begin{align*}
+\text{minimize}_{\ddot{q},u,\lambda} & \left\Vert \tau\right\Vert ^{2}\\
+\text{subject to} & M\left(q\right)\ddot{q}+c\left(q,\dot{q}\right)=Bu+J_{c}^{T}\left(q\right)\lambda\\
+ & D\ddot{q}=e\\
+ & \lambda\in\text{friction cones}\\
+ & u_{\text{min}}\leq u\leq u_{\text{max}}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Approximate using QP: run at 500 - 1000 Hz
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

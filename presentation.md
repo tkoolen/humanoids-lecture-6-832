@@ -31,6 +31,22 @@ revealOptions:
 
 ---
 
+### Pendulum phase portrait
+
+<center>
+<img src="figures/pend_undamped_phase.svg" alt="pendulum phase portrait" style="height: 450px;"/>
+</center>
+
+---
+
+### LIPM phase portrait
+
+<center>
+<img src="figures/LIPM_Phase_Portrait.svg" alt="LIPM phase portrait" style="height: 450px;"/>
+</center>
+
+---
+
 ### Radically Different Approaches
 
 <iframe width="320" height="240" src="https://www.youtube.com/embed/vppFvq2quQ0?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
