@@ -1,5 +1,5 @@
 ---
-title: Group meeting April 4, 2018
+title: "6.832 Lecture: Humanoid Robotics"
 theme: serif
 highlightTheme: github
 css: style.css
@@ -11,91 +11,24 @@ revealOptions:
 
 <!-- ## More efficient autodiff for rigid body kinematics/dynamics -->
 
-## Presentation title
-
-
----
-
-### Basics
-
-Foo:
-
-* bar
-* baz
+## 6.832: Humanoid Robotics
+### April 12, 2018
+### Twan Koolen and Robin Deits
 
 ---
 
-### Fragments
+### Humanoid Robots at the DARPA Robotics Challenge
 
-* foo
-* bar <!-- .element: class="fragment" -->
-* baz <!-- .element: class="fragment" -->
 
----
 
-### Fragments, part 2
+<iframe width="320" height="240" src="https://www.youtube.com/embed/GA-M1pMtANs?rel=0&amp;start=140&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-* foo <!-- .element: class="fragment" data-fragment-index="2" -->
-* bar <!-- .element: class="fragment" data-fragment-index="1" -->
-
-baz <!-- .element: class="fragment" data-fragment-index="2" -->
+<iframe width="320" height="240" src="https://www.youtube.com/embed/g0TaYhjpOfo?rel=0&amp;showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
 
-### Code
+### Footstep Planning
 
-'Dual number' type:
-
-```julia
-struct Dual
-    val::Float64
-    der::Float64
-end
-```
-
-Inline code: `foo = bar`
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_6WQxXH-bB4?rel=0&amp;showinfo=0&amp;start=90" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
 ---
-
-### Math
-
-Let
-
-$$
-c = \frac{\sum_i m_i H^w_i c_i}{\sum_i m_i}
-$$
-
----
-
-### Images 1
-
-Using Markdown:
-
-![branching](figures/branching.png "Branching")
-
----
-
-### Images 2
-
-Using HTML (allows for more options):
-
-<center>
-<img src="figures/branching.png" alt="branching" style="height: 200px;"/>
-</center>
-
----
-
-### More HTML
-
-<center>
-Center.
-</center>
-
----
-
-### Video
-
- <video width="320" height="240" autoplay>
-  <source src="https://www.w3schools.com/html/movie.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video> 
